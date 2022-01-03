@@ -1,0 +1,60 @@
+.sl-menu-link {
+    font-size: 16px;
+}
+.sl-menu-link:focus,
+.sl-menu-link:focus {
+    text-decoration: none;
+}
+table tr td {
+    font-size: 18px;
+}
+form label {
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.form-group button,
+.form-group .text-danger {
+    font-size: 18px;
+}
+input[type="file"] {
+    pad: 10px;
+    height: auto;
+}
+div#brand-table_info,
+.dataTables_paginate,
+label input,
+.dataTables_length label {
+    font-size: 16px !important;
+    font-weight: 400 !important;
+}
+
+.sl-menu-sub .nav-link {
+    font-size: 15px;
+}
+form .btn {
+    cursor: pointer;
+}
+.bootstrap-tagsinput input {
+    width: 100%;
+}
+.thumbnail {
+    position: relative;
+    width: 100%;
+}
+.thumbnail-delete {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%,-50%);
+}
+
+.thumbnail:hover .thumbnail-delete  {
+    opacity: 1;
+}
+form#delete-form {
+    display: inline-block;
+}
+
+

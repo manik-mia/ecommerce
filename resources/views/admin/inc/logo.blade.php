@@ -1,0 +1,1 @@
+<div class="sl-logo"><a href=""><i class="icon ion-android-star-outline"></i>{{__('Easy Shop')}}</a></div>

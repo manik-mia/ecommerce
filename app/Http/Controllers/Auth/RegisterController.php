@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -20,7 +20,7 @@ class RegisterController extends Controller
     | validation and creation. By default this controller uses a trait to
     | provide this functionality without requiring any additional code.
     |
-    */
+     */
 
     use RegistersUsers;
 
@@ -29,18 +29,24 @@ class RegisterController extends Controller
      *
      * @var string
      */
+
     protected $redirectTo = RouteServiceProvider::HOME;
-    
     protected function redirectTo()
     {
-        if (Auth()->user()->role_id==1) {
-            return redirect()->route('admin.dashboard');
-        }elseif (Auth()->user()->role_id==2) {
-            return redirect()->route('user.dashboard');
-        }else{
-            return redirect()->route('login');
+        if ( Auth()->user()->role_id == 1 )
+        {
+            return route( 'admin.dashboard' );
+        }
+        elseif ( Auth()->user()->role_id == 2 )
+        {
+            return route( 'user.dashboard' );
+        }
+        else
+        {
+            return route( 'home' );
         }
     }
+
     /**
      * Create a new controller instance.
      *
@@ -48,7 +54,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware( 'guest' );
     }
 
     /**
@@ -57,13 +63,14 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validator( array $data )
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        return Validator::make( $data, [
+            'name'     => ['required', 'string', 'max:255'],
+            'email'    => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'phone'    => ['required', 'max:20', 'min:10'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        ] );
     }
 
     /**
@@ -72,12 +79,14 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
+    protected function create( array $data )
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        return User::create( [
+            'name'     => $data['name'],
+            'email'    => $data['email'],
+            'phone'    => $data['phone'],
+            'image'    => 'assets/frontend/media/avater.png',
+            'password' => Hash::make( $data['password'] ),
+        ] );
     }
 }

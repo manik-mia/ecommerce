@@ -1,0 +1,79 @@
+.user-dashboard ul li {
+    margin: 5px 0;
+}
+.user-dashboard ul li a {
+    display: block;
+    text-align: left;
+}
+
+.user-dashboard ul li .logout {
+    text-align: center;
+}
+.user-dashboard ul li a .fa{
+    margin-right: 5px;
+    font-size: 18px;
+}
+.profile-image {
+    border-radius: 50%;
+}
+.profile-image img {
+    width: 100%;
+    border-radius: 50%;
+}
+.user-profile-edit form {
+    margin-top: 20px;
+    padding: 30px;
+}
+.user-profile-edit form .form-control{
+    margin: 10px 0;
+}
+.swal2-html-container {
+    font-size: 14px !important;
+}
+.user-info-table td {
+    font-size: 16px;
+    padding: 15px !important;
+}
+
+.delete {
+    text-decoration: line-through;
+}
+.stock.in-stock {
+    background-color: green;
+    color:#fff;
+    padding: 5px;
+    border-radius:5px;
+}
+.stock.out-stock {
+    background-color: red;
+    color:#fff;
+    padding: 5px;
+    border-radius:5px;
+}
+.d-none {
+    display: none;
+}
+.add-to-wishlist, 
+.compare {
+    background: #66ad44;
+    border-radius:0;
+    color: #fff;
+}
+h4.cart-product-description {
+    max-width: 250px;
+}
+.shipping-area {
+    background: #fff;
+    padding:30px;
+}
+.shipping-area label,
+.shipping-area input {
+    font-size: 15px;
+}
+span.select2-selection.select2-selection--single {
+    height: 35px;
+    font-size: 15px;
+}
+.order-table tr {
+    border-bottom: 2px solid #f3f3f3;
+}

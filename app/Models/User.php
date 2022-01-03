@@ -8,7 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Role;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Cache;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -19,9 +21,14 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
+        'provider_id',
         'name',
         'email',
+        'phone',
+        'image',
         'password',
+        'is_suspend',
+        'last_login',
     ];
 
     /**
@@ -43,8 +50,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function role():HasOne
+    public function role():BelongsTo
     {
-        return $this->hasOne(Role::class);
+        return $this->belongsTo(Role::class);
     }
+    public function userOnline()
+    {
+        return Cache::has('online-user' .$this->id);
+    }
+    
 }

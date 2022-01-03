@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.frontend-layout')
 
 @section('content')
 <div class="container">
@@ -12,7 +12,6 @@
 
                     <form method="POST" action="{{ route('password.confirm') }}">
                         @csrf
-
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
